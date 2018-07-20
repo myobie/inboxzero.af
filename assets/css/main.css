@@ -1,0 +1,115 @@
+/*
+ * CREDIT: Rainbow colors and inspiration from https://codepen.io/birjolaxew/pen/EPOobx
+ */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+  margin: 10px;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  height: calc(100% - 20px);
+}
+
+.markdown {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.markdown p {
+  margin: 0;
+  font-size: 28px;
+  position: relative;
+  top: -10px; /* move things up so they are more visually centered */
+}
+
+.markdown p strong {
+  color: #FFF;
+  font-weight: 700;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2),
+               1px 1px #19F,
+               2px 2px #19F,
+               3px 3px #19F,
+               4px 4px #19F,
+               6px 6px #EA0,
+               7px 7px #EA0,
+               8px 8px #EA0,
+               9px 9px #EA0,
+               11px 11px #E62,
+               12px 12px #E62,
+               13px 13px #E62,
+               14px 14px #E62,
+               16px 16px #C25,
+               17px 17px #C25,
+               18px 18px #C25,
+               19px 19px #C25;
+}
+
+@keyframes zoomin {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, -100px) scale(0.25, 0.25);
+  }
+
+  75% {
+    opacity: 0.9;
+    transform: translate3d(0, 0, 0) scale(1.1, 1.1);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(0.9, 0.9);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) scale(1, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomout {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.markdown p .emoji {
+  display: inline-block;
+  position: relative;
+  top: 2px; /* move the emoji down into the decender area a litte */
+  margin-left: 0.7em; /* kern */
+  transform-origin: 50% 50%;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+.markdown p .emoji.zoomin {
+  animation-name: zoomin;
+  animation-duration: 0.5s;
+}
+
+.markdown p .emoji.zoomout {
+  animation-name: zoomout;
+  animation-duration: 0.2s;
+}
+
+@media (min-width: 500px) {
+  .markdown p {
+    font-size: 64px;
+  }
+
+  .markdown p .emoji {
+    margin-left: 0.3em;
+  }
+}
