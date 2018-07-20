@@ -5,15 +5,15 @@
     <title>{{ .Site.Title }}</title>
     {{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-    <script>
-      window.emojis = {{ .Params.emojis | jsonify | safeJS }}
-    </script>
-    {{ $script := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
-    <script src="{{ $script.RelPermalink }}"></script>
   </head>
   <body>
     <div class="markdown">
       {{ .Content }}
     </div>
+    <script>
+      window.emojis = {{ .Params.emojis | jsonify | safeJS }}
+    </script>
+    {{ $script := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $script.RelPermalink }}"></script>
   </body>
 </html>
